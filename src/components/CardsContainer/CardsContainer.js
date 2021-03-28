@@ -5,7 +5,6 @@ import Card from "../Card/Card";
 import "./CardsContainer.css";
 
 function CardsContainer(props) {
-  console.log(props);
   return (
     <div>
       <div className="cards-container">

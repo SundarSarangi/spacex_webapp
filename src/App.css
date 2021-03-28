@@ -1,6 +1,7 @@
-/* .App {
+.App {
   background-color: #f9f9f9;
   height: 100%;
+  margin: 0 20px;
   display: grid;
   grid-template-rows: 50px auto 50px;
   grid-template-columns: 100%;
@@ -8,10 +9,6 @@
     "header"
     "main-content"
     "footer";
-} */
-
-.App {
-  margin: 0 20px;
 }
 
 header {
@@ -57,27 +54,3 @@ footer {
 p {
   margin: 0;
 }
-/* 
-@media screen and (max-width: 450px) {
-  .App {
-    display: grid;
-    grid-template-rows: 50px auto 50px;
-    grid-template-columns: 100%;
-    grid-template-areas:
-      "header"
-      "sidebar"
-      "main-content"
-      "footer";
-  }
-}
-
-@media screen and (min-width: 600px) and (max-width: 1024px) {
-  .App {
-    grid-template-rows: 50px auto 50px;
-    grid-template-columns: 20% 80%;
-    grid-template-areas:
-      "header header"
-      "sidebar main-content"
-      "footer footer";
-  }
-} */

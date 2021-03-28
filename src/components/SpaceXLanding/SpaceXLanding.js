@@ -7,6 +7,8 @@ import {
 
 import "./SpaceXLanding.css";
 
+import { Strings } from "../../strings/Strings";
+
 import { Spinner, SpinnerSize } from "@fluentui/react";
 
 import CardsContainer from "../CardsContainer/CardsContainer";
@@ -38,7 +40,7 @@ class SpaceXLanding extends Component {
             }));
           }
         })
-        .catch(() => alert("An unexpected error has occured"))
+        .catch(() => alert(Strings.ErrorMessage))
         .finally(() =>
           this.setState((prevState) => ({ ...prevState, isLoading: false }))
         );
@@ -51,7 +53,7 @@ class SpaceXLanding extends Component {
             this.setState((prevState) => ({ ...prevState, noData: true }));
           }
         })
-        .catch(() => alert("An unexpected error has occured"))
+        .catch(() => alert(Strings.ErrorMessage))
         .finally(() =>
           this.setState((prevState) => ({ ...prevState, isLoading: false }))
         );
@@ -59,8 +61,6 @@ class SpaceXLanding extends Component {
   };
 
   handleFilter = (ev) => {
-    // console.log(ev);
-    // check for each
     let requestParams = "";
     Object.entries(ev).forEach(([key, value]) => {
       if (value) {
@@ -70,7 +70,6 @@ class SpaceXLanding extends Component {
       }
     });
 
-    console.log(requestParams);
     this.getSpaceXData(requestParams);
   };
 
@@ -83,14 +82,14 @@ class SpaceXLanding extends Component {
           </div>
           <div className="content">
             {this.state.isLoading ? (
-              <Spinner size={SpinnerSize.large} label="Loading..." />
+              <Spinner size={SpinnerSize.large} label={Strings.Loading} />
             ) : this.state.spaceXData.length ? (
               <CardsContainer data={this.state.spaceXData} />
             ) : (
               <div className="no-data">
                 {this.state.noSearchData
                   ? "No data found with provided search inputs. Please alter your search and try again."
-                  : "No data found."}
+                  : Strings.ErrorMessage}
               </div>
             )}
           </div>

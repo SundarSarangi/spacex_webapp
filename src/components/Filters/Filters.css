@@ -1,13 +1,3 @@
-/* .years-filter,
-.launch-filter,
-.landing-filter {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  column-gap: 10px;
-  row-gap: 15px;
-} */
-
 .filter-content {
   display: grid;
   grid-template-columns: 1fr 1fr;

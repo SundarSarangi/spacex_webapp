@@ -1,4 +1,5 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 
 import "./Filter.css";
@@ -6,7 +7,7 @@ import "./Filter.css";
 const Filter = (props) => {
   return (
     <div
-      className={`filter ${props.value.isActive ? "active-filter" : null}`}
+      className={`filter ${props.value.isActive ? "active-filter" : ""}`}
       onClick={() => props.handleSelect(props.value)}
     >
       {props.value.value}

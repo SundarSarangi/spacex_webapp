@@ -1,0 +1,18 @@
+.filter {
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 5px;
+  width: 50px;
+  margin-bottom: 10px;
+  background-color: #036103a6;
+  text-align: center;
+}
+
+.filter:hover {
+  background-color: #0fbf0fa6;
+  cursor: pointer;
+}
+
+.active-filter {
+  background-color: #0fbf0fa6;
+}

@@ -1,0 +1,14 @@
+.cards-container {
+  max-height: 100%;
+  overflow: auto;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 240px));
+  background: #f9f9f9;
+}
+
+.card-wrapper {
+  background: #fff;
+  border-radius: 10px;
+}

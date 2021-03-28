@@ -1,0 +1,44 @@
+.card {
+  /* background-color: #fff; */
+  padding: 20px;
+}
+
+.mission-header {
+  font-size: 16px;
+  font-weight: 700;
+  color: #052952;
+  font-style: normal;
+  text-align: left;
+}
+
+.details-section > .title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #052952;
+  font-style: normal;
+  text-align: left;
+}
+
+.details-section > .value {
+  font-size: 14px;
+  font-weight: 400;
+  color: #373d3f;
+  font-style: normal;
+  text-align: left;
+}
+
+.image-wrapper {
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+}
+
+.image-wrapper > img {
+  height: 150px;
+  width: 150px;
+  background-size: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+}

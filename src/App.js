@@ -10,11 +10,13 @@ function App() {
       </header>
 
       {/* <div className="main-content"> */}
-        <SpaceXLanding />
+      <SpaceXLanding />
       {/* </div> */}
 
       <footer>
-        <p>Developed By: Sundar Sarangi</p>
+        <p>
+          <strong>Developed By</strong>: Sundar Sarangi
+        </p>
       </footer>
     </div>
   );

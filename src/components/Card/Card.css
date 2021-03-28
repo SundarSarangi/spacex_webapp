@@ -1,5 +1,4 @@
 .card {
-  /* background-color: #fff; */
   padding: 20px;
 }
 
@@ -9,6 +8,7 @@
   color: #052952;
   font-style: normal;
   text-align: left;
+  padding: 10px 0px;
 }
 
 .details-section > .title {
@@ -17,12 +17,13 @@
   color: #052952;
   font-style: normal;
   text-align: left;
+  padding: 10px 0px;
 }
 
-.details-section > .value {
+.details-section > .title .value {
   font-size: 14px;
   font-weight: 400;
-  color: #373d3f;
+  color: #3c33ce;
   font-style: normal;
   text-align: left;
 }

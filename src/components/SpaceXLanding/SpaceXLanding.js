@@ -38,7 +38,7 @@ class SpaceXLanding extends Component {
             }));
           }
         })
-        .catch((error) => alert("An unexpected error has occured"))
+        .catch(() => alert("An unexpected error has occured"))
         .finally(() =>
           this.setState((prevState) => ({ ...prevState, isLoading: false }))
         );
@@ -51,7 +51,7 @@ class SpaceXLanding extends Component {
             this.setState((prevState) => ({ ...prevState, noData: true }));
           }
         })
-        .catch((error) => alert("An unexpected error has occured"))
+        .catch(() => alert("An unexpected error has occured"))
         .finally(() =>
           this.setState((prevState) => ({ ...prevState, isLoading: false }))
         );

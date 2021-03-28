@@ -8,12 +8,11 @@ function CardsContainer(props) {
   console.log(props);
   return (
     <div>
-      {/* <p>Cards Container</p> */}
       <div className="cards-container">
         {props.data && props.data.length
           ? props.data.map((_data) => {
               return (
-                <div className="card-wrapper" key={_data.flight_number} >
+                <div className="card-wrapper" key={_data.flight_number}>
                   <Card data={_data} />
                 </div>
               );

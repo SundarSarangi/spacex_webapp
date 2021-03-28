@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import "./Filter.css";
 
 const Filter = (props) => {
-  // console.log(props);
   return (
     <div
       className={`filter ${props.value.isActive ? "active-filter" : null}`}

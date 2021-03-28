@@ -43,7 +43,7 @@
 
 /* Media Queries */
 
-@media screen and (max-width: 700px) and (max-width: 700px) {
+@media screen and (max-width: 700px) {
   .main-content {
     /* display: grid;
     grid-template-columns: 100%;
@@ -54,6 +54,17 @@
 
     flex-direction: column;
     padding: 0px 10px !important;
+  }
+
+  .filter-content {
+    column-gap: 90px !important;
+  }
+
+  .sidebar {
+    margin-bottom: 20px;
+  }
+  .content {
+    padding: 0 !important;
   }
 
   .cards-container {

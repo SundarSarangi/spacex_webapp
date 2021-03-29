@@ -5,7 +5,7 @@
 .mission-header {
   font-size: 16px;
   font-weight: 700;
-  color: #052952;
+  color: #514acc;
   font-style: normal;
   text-align: left;
   padding: 10px 0px;
@@ -20,10 +20,10 @@
   padding: 5px 0px;
 }
 
-.details-section > .title .value {
+.details-section .value {
   font-size: 15px;
   font-weight: 400;
-  color: #3c33ce;
+  color: #514acc;
   font-style: normal;
   text-align: left;
 }
@@ -42,4 +42,11 @@
   background-position: center;
   background-repeat: no-repeat;
   margin-right: 5px;
+}
+
+.no-mission {
+  text-align: center;
+  font-size: 14px;
+  color: #514acc;
+  font-weight: 400;
 }

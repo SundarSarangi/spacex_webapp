@@ -13,8 +13,10 @@ import {
 } from "../../models/Filters";
 
 import "./Filters.css";
+import { Strings } from "../../strings/Strings";
 
 function Filters(props) {
+  // Initial objects for filter vlaues
   const yearsList = YearsValue.map(
     (value) => new FilterConstructor(value, FilterTypes.Year)
   );
@@ -38,6 +40,7 @@ function Filters(props) {
     props.handleFilter(allFilters);
   }, [yearsFilterList, launchOptions, landingOptions]);
 
+  // Handle filter selection
   function handleSelect({ type, value }) {
     let selectedValue;
     switch (type) {
@@ -52,7 +55,7 @@ function Filters(props) {
       case FilterTypes.Launch:
         selectedValue = launchOptions.map((data) =>
           data.value === value
-            ? { ...data, isActive: true, value: data.value.toLowerCase() }
+            ? { ...data, isActive: true, value: data.value }
             : { ...data, isActive: false }
         );
         setLaunchOptions(selectedValue);
@@ -60,7 +63,7 @@ function Filters(props) {
       case FilterTypes.Landing:
         selectedValue = landingOptions.map((data) =>
           data.value === value
-            ? { ...data, isActive: true, value: data.value.toLowerCase() }
+            ? { ...data, isActive: true, value: data.value }
             : { ...data, isActive: false }
         );
         setLandingOptions(selectedValue);
@@ -73,32 +76,33 @@ function Filters(props) {
 
   return (
     <div className="filters-wrapper">
-      <div className="header">Filters</div>
+      <div className="header">{Strings.Filters}</div>
       <div className="years-filter">
         <FilterLayout
           data={yearsFilterList}
           handleSelect={handleSelect}
-          title="Launch Year"
+          title={Strings.LaunchYear}
         />
       </div>
       <div className="launch-filter">
         <FilterLayout
           data={launchOptions}
           handleSelect={handleSelect}
-          title="Successful Launch"
+          title={Strings.SuccessfulLaunch}
         />
       </div>
       <div className="landing-filter">
         <FilterLayout
           data={landingOptions}
           handleSelect={handleSelect}
-          title="Successful Land"
+          title={Strings.SuccessfulLand}
         />
       </div>
     </div>
   );
 }
 
+// Mandatory Props
 Filters.propTypes = {
   handleFilter: PropTypes.func,
 };

@@ -15,58 +15,81 @@ import CardsContainer from "../CardsContainer/CardsContainer";
 import Filters from "../Filters/Filters";
 
 class SpaceXLanding extends Component {
-  state = {
-    spaceXData: [],
-    isLoading: false,
-    noData: false,
-    noSearchData: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      spaceXData: [],
+      isLoading: false,
+      noData: false,
+      noSearchData: false,
+    };
+  }
 
   componentDidMount() {
     this.getSpaceXData();
   }
 
+  // Get SpaceX Data
   getSpaceXData = (reqParams) => {
     this.setState((prevState) => ({ ...prevState, isLoading: true }));
+
+    // For Filtered Data
     if (reqParams) {
       getFilteredSpaceXData(reqParams)
         .then((data) => {
-          if (data) {
+          if (data && data.length) {
             this.setState({ spaceXData: data });
           } else {
             this.setState((prevState) => ({
               ...prevState,
+              spaceXData: [],
               noSearchData: true,
             }));
           }
         })
         .catch(() => alert(Strings.ErrorMessage))
         .finally(() =>
-          this.setState((prevState) => ({ ...prevState, isLoading: false }))
+          this.setState((prevState) => ({
+            ...prevState,
+            isLoading: false,
+          }))
         );
     } else {
+      // For Initial Load
       getSpaceXData()
         .then((data) => {
-          if (data) {
+          if (data && data.length) {
             this.setState({ spaceXData: data });
           } else {
-            this.setState((prevState) => ({ ...prevState, noData: true }));
+            this.setState((prevState) => ({
+              ...prevState,
+              spaceXData: [],
+              noData: true,
+            }));
           }
         })
         .catch(() => alert(Strings.ErrorMessage))
         .finally(() =>
-          this.setState((prevState) => ({ ...prevState, isLoading: false }))
+          this.setState((prevState) => ({
+            ...prevState,
+            isLoading: false,
+          }))
         );
     }
   };
 
+  // For handling changes in filter parameters
   handleFilter = (ev) => {
     let requestParams = "";
-    Object.entries(ev).forEach(([key, value]) => {
-      if (value) {
+    Object.entries(ev).forEach(([key, _value]) => {
+      if (_value) {
+        if (key === "launch_success" || key === "land_success") {
+          _value = { ..._value, value: _value.value.toLowerCase() };
+        }
+
         requestParams
-          ? (requestParams += `&${key}=${value.value}`)
-          : (requestParams += `${key}=${value.value}`);
+          ? (requestParams += `&${key}=${_value.value}`)
+          : (requestParams += `${key}=${_value.value}`);
       }
     });
 
@@ -88,8 +111,8 @@ class SpaceXLanding extends Component {
             ) : (
               <div className="no-data">
                 {this.state.noSearchData
-                  ? "No data found with provided search inputs. Please alter your search and try again."
-                  : Strings.ErrorMessage}
+                  ? Strings.NoSearchData
+                  : Strings.NoDataFound}
               </div>
             )}
           </div>

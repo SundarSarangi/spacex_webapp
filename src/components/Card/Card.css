@@ -12,16 +12,16 @@
 }
 
 .details-section > .title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: #052952;
   font-style: normal;
   text-align: left;
-  padding: 10px 0px;
+  padding: 5px 0px;
 }
 
 .details-section > .title .value {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   color: #3c33ce;
   font-style: normal;
@@ -35,8 +35,8 @@
 }
 
 .image-wrapper > img {
-  height: 150px;
-  width: 150px;
+  height: 180px;
+  width: 180px;
   background-size: 120px;
   background-repeat: no-repeat;
   background-position: center;

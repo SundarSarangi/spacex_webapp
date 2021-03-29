@@ -23,3 +23,18 @@ build - npm run build
 start - npm start
 
 Link to the hosted web app - "https://test-project-bbc63.web.app"
+
+# Description
+  
+  1. Folder Structure
+
+  App - Root Component.
+  SpaceXLanding - Container/Statefull component for the application.
+  Filters - Container/Statefull component for Filters.
+  FilterLayout- Reusable component for the layout design.
+  Filter - Reusable component for filter.
+  CardContainer - Contains collection of Cards.
+  Strings - String constants
+  Models  - Contains classes and Objects of filters.
+
+  

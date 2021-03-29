@@ -24,17 +24,19 @@ start - npm start
 
 Link to the hosted web app - "https://test-project-bbc63.web.app"
 
-# Description
-  
-  1. Folder Structure
+# Description Folder Structure
 
   App - Root Component.
-  SpaceXLanding - Container/Statefull component for the application.
-  Filters - Container/Statefull component for Filters.
-  FilterLayout- Reusable component for the layout design.
-  Filter - Reusable component for filter.
-  CardContainer - Contains collection of Cards.
-  Strings - String constants
-  Models  - Contains classes and Objects of filters.
+
+  1. components folder
+     SpaceXLanding - Container/Statefull component for the application.
+     Filters - Container/Statefull component for Filters.
+     FilterLayout- Reusable component for the layout design.
+     Filter - Reusable component for filter.
+     CardContainer - Contains collection of Cards.
+
+  2. Strings - String constants
+  3. Models  - Contains classes and Objects of filters.
+  4. Service - Contains file with API calls.
 
   

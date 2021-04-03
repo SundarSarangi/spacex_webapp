@@ -15,27 +15,48 @@ import CardsContainer from "../CardsContainer/CardsContainer";
 import Filters from "../Filters/Filters";
 
 class SpaceXLanding extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       spaceXData: [],
       isLoading: false,
       noData: false,
       noSearchData: false,
+      requestParams: null,
     };
   }
 
   componentDidMount() {
-    this.getSpaceXData();
+    this.setState((prevState) => ({ ...prevState, isLoading: true }));
+    getSpaceXData()
+      .then((data) => {
+        if (data && data.length) {
+          this.setState({ spaceXData: data });
+        } else {
+          this.setState((prevState) => ({
+            ...prevState,
+            spaceXData: [],
+            noData: true,
+          }));
+        }
+      })
+      .catch(() => alert(Strings.ErrorMessage))
+      .finally(() =>
+        this.setState((prevState) => ({
+          ...prevState,
+          isLoading: false,
+        }))
+      );
   }
 
-  // Get SpaceX Data
-  getSpaceXData = (reqParams) => {
-    this.setState((prevState) => ({ ...prevState, isLoading: true }));
-
-    // For Filtered Data
-    if (reqParams) {
-      getFilteredSpaceXData(reqParams)
+  componentDidUpdate(prevProps, prevState) {
+    // Get new data when filters are applied (State has changed)
+    if (
+      this.state.requestParams &&
+      prevState.requestParams !== this.state.requestParams
+    ) {
+      this.setState((prevState) => ({ ...prevState, isLoading: true }));
+      getFilteredSpaceXData(this.state.requestParams)
         .then((data) => {
           if (data && data.length) {
             this.setState({ spaceXData: data });
@@ -54,29 +75,8 @@ class SpaceXLanding extends Component {
             isLoading: false,
           }))
         );
-    } else {
-      // For Initial Load
-      getSpaceXData()
-        .then((data) => {
-          if (data && data.length) {
-            this.setState({ spaceXData: data });
-          } else {
-            this.setState((prevState) => ({
-              ...prevState,
-              spaceXData: [],
-              noData: true,
-            }));
-          }
-        })
-        .catch(() => alert(Strings.ErrorMessage))
-        .finally(() =>
-          this.setState((prevState) => ({
-            ...prevState,
-            isLoading: false,
-          }))
-        );
     }
-  };
+  }
 
   // For handling changes in filter parameters
   handleFilter = (ev) => {
@@ -93,7 +93,7 @@ class SpaceXLanding extends Component {
       }
     });
 
-    this.getSpaceXData(requestParams);
+    this.setState({ requestParams });
   };
 
   render() {
